@@ -1,5 +1,7 @@
+// Configuration 
+require('./config');
 // Dependencies
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
 // Init app
 const app = express()
@@ -40,6 +42,6 @@ app.delete('/user/:id', function (req, res) {
   res.json('Hello World')
 })
  
-app.listen(3000, () => {
-  console.log('Server ON!')
+app.listen(process.env.PORT, () => {
+  console.log('Server ON!', process.env.PORT)
 })
