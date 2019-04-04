@@ -20,7 +20,14 @@ app.get('/user/:id', function (req, res) {
 
 app.post('/user', function (req, res) {
   const body = req.body 
-  res.json({person: body})
+  if (body.name === undefined ) {
+    res.status(400).json({
+      ok: false,
+      message: 'Name is required'
+    });
+  } else {
+    res.json({person: body})
+  }
 })
 // Send params is with :name 
 app.put('/user/:id', function (req, res) {
